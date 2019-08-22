@@ -163,6 +163,12 @@ augroup vimscript_augroup
   autocmd FileType vim nnoremap <buffer> <M-z> :execute "help" expand("<cword>")<CR>
 augroup END
 
+" Markdown {{{2
+augroup markdown_augroup
+  autocmd!
+  autocmd FileType markdown setlocal textwidth=0
+augroup END
+
 " Scala {{{2
 augroup scala_augroup
   autocmd!
