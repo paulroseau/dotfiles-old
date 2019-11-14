@@ -154,7 +154,7 @@ nnoremap <silent> <leader>W :silent! execute '%substitute/\v( )+$//'<CR>
 
 " Modify init.vim easily {{{3
 nnoremap <leader>ev :edit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>:echo $MYVIMRC "reloaded"<CR>
 
 " Auto-commands {{{1
 " Vimscript {{{2
@@ -187,6 +187,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'lnl7/vim-nix'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'nelstrom/vim-visual-star-search'
