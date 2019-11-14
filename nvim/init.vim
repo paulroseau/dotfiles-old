@@ -153,7 +153,7 @@ nnoremap <silent> <leader>W :silent! execute '%substitute/\v( )+$//'<CR>
 " function! PreservePosition(f)
 
 " Modify init.vim easily {{{3
-nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>:<BS>
 nnoremap <leader>sv :source $MYVIMRC<CR>:echo $MYVIMRC "reloaded"<CR>
 
 " Auto-commands {{{1
