@@ -207,7 +207,7 @@ call plug#end()
 " SETTINGS {{{2
 " Airline {{{3
 let g:airline_theme='solarized'
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 
 " Deoplete {{{3
 let g:deoplete#enable_at_startup = 1
