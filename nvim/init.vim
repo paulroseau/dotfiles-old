@@ -90,6 +90,9 @@ nnoremap <M-o> <C-w>o
 " Quickfix
 nnoremap <M-Enter> <C-w><CR>
 
+" Tabs
+nnoremap <silent> <M-t> <C-w>T:tabnext<CR>
+
 " Switch between buffers {{{3
 nnoremap <C-l> :bn<CR>
 nnoremap <C-h> :bp<CR>
@@ -156,6 +159,7 @@ nnoremap <silent> <leader>W :silent! execute '%substitute/\v( )+$//'<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>:<BS>
 nnoremap <leader>sv :source $MYVIMRC<CR>:echo $MYVIMRC "reloaded"<CR>
 
+
 " Auto-commands {{{1
 " Vimscript {{{2
 augroup vimscript_augroup
@@ -169,10 +173,10 @@ augroup markdown_augroup
   autocmd FileType markdown setlocal textwidth=0
 augroup END
 
-" Scala {{{2
-augroup scala_augroup
+" HCL {{{2
+augroup hcl_augroup
   autocmd!
-  autocmd BufWritePost *.scala Neomake
+  autocmd BufReadPost *.hcl setlocal filetype=terraform
 augroup END
 
 " PLUGINS {{{1
@@ -181,21 +185,17 @@ let s:NVIM_HOME = "/" . join(split($MYVIMRC, "/")[0 : -2], "/")
 let s:PLUGINS_DIR_NAME = "plugged"
 
 call plug#begin(s:NVIM_HOME . "/" . s:PLUGINS_DIR_NAME)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'altercation/vim-colors-solarized'
-Plug 'derekwyatt/vim-scala'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'lnl7/vim-nix'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'mbbill/undotree'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'neomake/neomake'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'plasticboy/vim-markdown'
+Plug 'scalameta/nvim-metals', { 'branch': 'main' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -220,11 +220,6 @@ silent! colorscheme solarized " ignore failure if the solarized colorscheme has 
 " Use FZF tags in order to select more easily the best candidate
 nnoremap <C-t> :execute "Tags" expand("<cword>")<CR>
 
-" Multiple Cursors {{{3
-let g:multi_cursor_select_all_word_key = '<A-a>'
-let g:multi_cursor_select_all_key      = 'g<A-a>'
-let g:multi_cursor_quit_key = mapleader . 'm'
-
 " NERDTree {{{3
 nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>f :NERDTreeFind <CR>
@@ -232,9 +227,14 @@ nnoremap <silent> <leader>f :NERDTreeFind <CR>
 " Undotree {{{3
 nnoremap <leader>u :UndotreeToggle<CR>
 
+" Terraform {{{3
+let g:terraform_fmt_on_save=1
+
 " AUGROUPS {{{2
 " Fugitive {{{3
 augroup fugitive_plugin
   autocmd!
   autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
+
+lua require'scala_metals'

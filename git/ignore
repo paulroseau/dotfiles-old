@@ -1,2 +1,5 @@
 *.sw?
-tags
+tags*
+*.secrets
+venv
+scratch*
