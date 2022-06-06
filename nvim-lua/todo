@@ -1,0 +1,9 @@
+use packer instead of VimPlug
+
+treesitter = compiler of incremental parsers that return a tree strucutre of your file
+ - useful for better syntax highligting
+ - useful for better folds
+ - shortcuts to replace expressions, function bodies etc. (ie. small refactoring)
+
+telescope = slower but nicer replacement to fzf 
+  maybe to be used in conjunction with fzf ?
