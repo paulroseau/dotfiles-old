@@ -184,6 +184,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'lnl7/vim-nix'
 Plug 'mbbill/undotree'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'nvim-lua/plenary.nvim'
