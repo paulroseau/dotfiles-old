@@ -93,8 +93,8 @@ nnoremap <M-Enter> <C-w><CR>
 nnoremap <silent> <M-t> <C-w>T:tabnext<CR>
 
 " Switch between buffers {{{3
-nnoremap <C-l> :bn<CR>
-nnoremap <C-h> :bp<CR>
+nnoremap <C-k> :bn<CR>
+nnoremap <C-j> :bp<CR>
 
 " Tags {{{3
 " Displays the list of multiple match for a tag by default.
@@ -105,10 +105,6 @@ nnoremap <C-]> g<C-]>
 " Quickfix list {{{3
 noremap <silent> <S-l> :cprevious<CR>
 noremap <silent> <S-h> :cnext<CR>
-
-" Move to next fold {{{3
-nnoremap <C-k> zk
-nnoremap <C-j> zj
 
 " More/Less foldlevel {{{3
 nnoremap <M-r> zr
