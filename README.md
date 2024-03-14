@@ -1,5 +1,8 @@
 # My Dotfiles
 
+**WARNING: This repository is archived**
+I revamped how I deal with my config setup completely [here](https://github.com/paulroseau/dotfiles)
+
 These are some of my dotfiles to work on MacOS X :
 - git
 - Karabiner to remap some keys of the keyboard
